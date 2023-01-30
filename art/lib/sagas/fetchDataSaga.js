@@ -1,4 +1,5 @@
 import axios from "axios";
+import appHTTP from "lib/api/appHTTP";
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
 import {
   fetchDataPending,
@@ -8,8 +9,9 @@ import {
 
 function* handleFetchDataPending() {
   try {
-    debugger;
-    const res = yield axios.get(`https://fakestoreApi.com/products`);
+    const http = appHTTP({ noToken: true });
+    const res = yield call(http.get, "/products");
+    // const res = yield axios.get(`https://fakestoreApi.com/products`);
 
     if (res) {
       yield put(fetchDataSuccess(res.data));

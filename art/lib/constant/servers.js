@@ -1,0 +1,1 @@
+export const ART_SERVER = "https://fakestoreapi.com";

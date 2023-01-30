@@ -1,4 +1,3 @@
-import { getData } from "api/test/product";
 import React, { useEffect } from "react";
 
 function Index() {
